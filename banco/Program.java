@@ -42,15 +42,15 @@ public class Program {
             }
         }
         else{
-            //login direto (usuário já é cadastrado)
+            //Confirmar o login
             System.out.print("Digite seu nome: ");
-            nomeUsuario = sc.nextLine(); // 👈 usa direto o nome informado
+            nomeUsuario = sc.nextLine(); 
 
             System.out.println("Digite sua senha (Apenas números inteiros): ");
             senha = sc.nextInt();
             sc.nextLine();
 
-            System.out.println("Login efetuado com sucesso!\n"); // 👈 só confirma o login
+            System.out.println("Login efetuado com sucesso!\n"); 
         }
 
         // Aqui mostra o local onde é criado o nome.
