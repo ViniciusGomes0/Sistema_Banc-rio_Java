@@ -5,14 +5,60 @@ public class Program {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Digite seu nome: ");
-        String nomeUsuario = sc.nextLine();
+        // Variáveis declaradas fora do IF
+        String nomeUsuario = "";
+        int senha = 0;
+
+        //Pergunta Cadastro:
+        System.out.println("Você possui cadastro? 1[S] 2[N]:  ");
+        int opcao = sc.nextInt();
+        sc.nextLine();
+
+        if (opcao == 2){
+            //Cadastro 2
+            System.out.println("Aqui será feito seu login e seu cadastro!: ");
+
+            System.out.print("Digite seu nome: ");
+            nomeUsuario = sc.nextLine();
+
+            System.out.println("Digite sua senha (Apenas números inteiros): ");
+            senha = sc.nextInt();
+            sc.nextLine();
+
+            System.out.println("Cadastro feito com sucesso! Efetive seu login agora!\n");
+
+            //Login logo em seguida
+            System.out.print("Digite seu nome: ");
+            String loginUsuario = sc.nextLine();
+
+            System.out.println("Digite sua senha (Apenas números inteiros): ");
+            int senhaUsuario = sc.nextInt();
+            sc.nextLine();
+
+            if(!loginUsuario.equals(nomeUsuario) || senhaUsuario != senha){
+                System.out.println("As credenciais não são iguais");
+                sc.close();
+                return;
+            }
+        }
+        else{
+            //login direto (usuário já é cadastrado)
+            System.out.print("Digite seu nome: ");
+            nomeUsuario = sc.nextLine(); // 👈 usa direto o nome informado
+
+            System.out.println("Digite sua senha (Apenas números inteiros): ");
+            senha = sc.nextInt();
+            sc.nextLine();
+
+            System.out.println("Login efetuado com sucesso!\n"); // 👈 só confirma o login
+        }
 
         // Aqui mostra o local onde é criado o nome.
         Conta conta = new Conta(1200.00, nomeUsuario);
 
         System.out.println("Olá " + conta.nomeUsuario + ", seja bem-vindo ao nosso primeiro protótipo de banco em Java!!");
 
+        //laços dos menus principais e efetivações do banco:
         do {
             System.out.println("\nQual será sua escolha hoje?");
             System.out.println("1 - Ver saldo.");

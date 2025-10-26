@@ -6,6 +6,8 @@ public class Conta {
     public int opcao;
     public double saldo;
     public String nomeUsuario;
+    public String loginUsuario;
+    public int senhaUsuario;
 
     public Conta(double saldo, String nomeUsuario) {
         this.saldo = saldo;
