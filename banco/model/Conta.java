@@ -6,19 +6,41 @@ public class Conta {
     public int opcao;
     public double saldo;
     public String nomeUsuario;
-    public String loginUsuario;
-    public int senhaUsuario;
+    public int senha; // Adicionado para persistência e login
 
-    public Conta(double saldo, String nomeUsuario) {
+    // Construtores
+
+    public Conta(double saldo, String nomeUsuario, int senha) {
         this.saldo = saldo;
         this.nomeUsuario = nomeUsuario;
+        this.senha = senha;
     }
+
+    public Conta() {
+    }
+
+
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public int getSenha() {
+        return senha;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+
 
     public void verSaldo() {
         System.out.printf("Seu saldo atual é: R$ %.2f%n", saldo);
     }
 
     public void transferir(Scanner sc) {
+
         System.out.print("Digite o valor da transferência: R$ ");
         double valor = sc.nextDouble();
         sc.nextLine();
@@ -41,8 +63,10 @@ public class Conta {
     }
 
     public void depositar(Scanner sc) {
+        // ... (Seu código original de depósito aqui)
         System.out.print("Digite o valor do depósito: R$ ");
         double valor = sc.nextDouble();
+        sc.nextLine(); // Consome a linha após o double
 
         if (valor <= 0) {
             System.out.println("Valor inválido!");
@@ -51,9 +75,6 @@ public class Conta {
 
         saldo += valor;
         System.out.printf("Depósito de R$ %.2f realizado com sucesso!%n", valor);
-    }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
     }
 }
