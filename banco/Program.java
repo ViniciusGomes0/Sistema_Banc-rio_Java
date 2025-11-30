@@ -57,11 +57,11 @@ public class Program {
                 // Cria a nova conta com saldo inicial de R$1200.00
                 Conta novaConta = new Conta(1200.00, nomeUsuarioNovo, senhaNova);
                 listaContas.add(novaConta);
-                salvarContasNoJson(listaContas, gson); // Salva o novo cadastro
+                salvarContasNoJson(listaContas, gson); 
 
                 System.out.println("Cadastro feito com sucesso! Efetive seu login agora!\n");
 
-                // Login logo em seguida (mantendo a frase original)
+                
                 System.out.print("Digite seu nome: ");
                 String loginUsuario = sc.nextLine();
 
@@ -78,12 +78,11 @@ public class Program {
                 contaLogada = buscarConta(loginUsuario, senhaUsuario, listaContas);
 
                 if(contaLogada == null){
-                    // Mensagem de erro unificada (usuário não cadastrado)
                     System.out.println("As credenciais não são iguais (Usuário não cadastrado ou senha incorreta)");
                     continue;
                 }
             }
-            else if (opcao == 1){ // Opção [S]
+            else if (opcao == 1){ 
                 // Confirmar o login
                 System.out.print("Digite seu nome: ");
                 String loginUsuario = sc.nextLine();
@@ -103,7 +102,6 @@ public class Program {
                 if (contaLogada != null) {
                     System.out.println("Login efetuado com sucesso!\n");
                 } else {
-                    // Mantém a frase, mas a lógica agora verifica o JSON
                     System.out.println("As credenciais não são iguais (Usuário não cadastrado ou senha incorreta).");
                 }
             } else {
@@ -148,8 +146,8 @@ public class Program {
                     String escolha = sc.nextLine();
 
                     if (valor > 0 && valor <= contaLogada.saldo) {
-                        contaLogada.saldo -= valor; // Atualiza o saldo
-                        salvarContasNoJson(listaContas, gson); // Salva a mudança
+                        contaLogada.saldo -= valor; 
+                        salvarContasNoJson(listaContas, gson); 
                         System.out.println("Transferência de R$ " + valor + " para conta " + escolha + " realizada com sucesso!");
                     } else {
                         System.out.println("Saldo insuficiente ou valor inválido.");
@@ -168,8 +166,8 @@ public class Program {
 
                     // Lógica de depósito corrigida
                     if (valor > 0) {
-                        contaLogada.saldo += valor; // Adiciona o saldo
-                        salvarContasNoJson(listaContas, gson); // Salva a mudança
+                        contaLogada.saldo += valor; 
+                        salvarContasNoJson(listaContas, gson); 
                         System.out.println("Depósito de R$ " + valor + " realizado com sucesso!");
                     } else {
                         System.out.println("Valor de depósito inválido!");
